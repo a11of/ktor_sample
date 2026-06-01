@@ -1,0 +1,11 @@
+ktor:
+  deployment:
+    port: 5555
+  application:
+    modules:
+      - com.cyh.MainKt.configureDependencies
+      - com.cyh.SerializationKt.configureSerialization
+      - com.cyh.StatusPagesKt.configureStatusPages
+      - com.cyh.PostgresKt.configurePostgres
+      - com.cyh.ExposedKt.configureExposed
+      - com.cyh.RoutingKt.configureRouting
