@@ -22,6 +22,8 @@ dependencies {
     implementation(ktorLibs.server.core)
     implementation(ktorLibs.server.netty)
     implementation(ktorLibs.server.statusPages)
+    implementation(ktorLibs.server.resources)
+    implementation(ktorLibs.server.methodOverride)
     implementation(libs.exposed.core)
     implementation(libs.exposed.r2dbc)
     implementation(libs.h2database.h2)
@@ -32,7 +34,6 @@ dependencies {
     implementation(libs.exposed.jdbc)
     implementation(libs.exposed.dao)
     implementation(libs.mysql)
-
     testImplementation(kotlin("test"))
     testImplementation(ktorLibs.server.testHost)
     testImplementation(ktorLibs.client.contentNegotiation)

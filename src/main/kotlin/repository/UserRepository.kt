@@ -16,6 +16,28 @@ interface UserRepository {
     suspend fun add(user: User): UserDAO
     suspend fun update(user: User): User?
 }
+class RedisUserRepository : UserRepository {
+    override suspend fun all(): List<User> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getById(id: Int): User? {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun removeById(id: Int): Boolean {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun add(user: User): UserDAO {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun update(user: User): User? {
+        TODO("Not yet implemented")
+    }
+
+}
 class MysqlUserRepository : UserRepository {
     override suspend fun all(): List<User>  = withTransaction {
         UserDAO.all().map(::daoToModel)

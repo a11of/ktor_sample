@@ -10,13 +10,14 @@ import io.ktor.server.application.*
 import io.ktor.server.http.content.resource
 import io.ktor.server.http.content.staticResources
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.plugins.di.annotations.Named
 import io.ktor.server.plugins.di.dependencies
 import io.ktor.server.request.receiveParameters
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-suspend fun Application.configureRouting() {
-    val repository = dependencies.resolve<UserRepository>()
+suspend fun Application.configureRouting(@Named("mysql") repository: UserRepository) {
+//    val repository = dependencies.resolve<UserRepository>("mysql")
 
     routing {
         route("/user") {

@@ -1,6 +1,10 @@
 ktor:
   deployment:
     port: 5555
+    connectionGroupSize: 1
+    workerGroupSize: 5
+    callGroupSize: 10
+    shutdownTimeout: 5000
   application:
     modules:
       - com.cyh.MainKt.configureDependencies
@@ -9,3 +13,11 @@ ktor:
       - com.cyh.PostgresKt.configurePostgres
       - com.cyh.ExposedKt.configureExposed
       - com.cyh.RoutingKt.configureRouting
+      - com.cyh.MainKt.configureSecurity
+      - com.cyh.MainKt.module
+  development: true
+database:
+  connectionUrl: jdbc:mysql://192.168.5.29:3306/demo
+  user: root
+  password: 123456
+  driver: com.mysql.cj.jdbc.Driver
